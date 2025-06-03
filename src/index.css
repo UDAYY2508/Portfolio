@@ -8,6 +8,12 @@ body{
   background-color: #000;
   color: #fff;
   font-family: 'Poppins', sans-serif;
+  height: 200vh;
+}
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 .font-Anton{
   font-family: 'Anton', sans-serif;
