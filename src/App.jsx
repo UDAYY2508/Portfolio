@@ -18,6 +18,7 @@ function App() {
             <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
             <Header darkMode={darkMode} />
             <About darkMode={darkMode} />
+       
         </>
     );
 }

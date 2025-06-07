@@ -20,7 +20,6 @@ function Navbar({ darkMode, setDarkMode }) {
         { name: 'Home', href: '#home' },
         { name: 'About', href: '#about' },
         { name: 'Projects', href: '#projects' },
-        { name: 'Skills', href: '#skills' },
         { name: 'Contact', href: '#contact' }
     ];
 
@@ -99,7 +98,6 @@ function Navbar({ darkMode, setDarkMode }) {
                 : 'bg-transparent'
             }`}
         >
-            {/* Glass overlay */}
             <div className={`absolute inset-0 transition-opacity duration-500 ${
                 scrolled ? 'opacity-100' : 'opacity-0'
             } ${

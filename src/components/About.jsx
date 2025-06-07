@@ -1,67 +1,267 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import Marquee from "react-fast-marquee";
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 
-const About = ({ darkMode }) => {
+function About({ darkMode }) {
+    const fadeInUp = {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { 
+            opacity: 1, 
+            y: 0,
+            transition: { duration: 0.5, ease: "easeOut" }
+        },
+        viewport: { once: true, margin: "-50px" }
+    };
+
+    const staggerContainer = {
+        initial: { opacity: 0 },
+        whileInView: { 
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                duration: 0.3,
+                ease: "easeOut"
+            }
+        },
+        viewport: { once: true, margin: "-50px" }
+    };
+
+    const skillCardVariants = {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { 
+            opacity: 1, 
+            y: 0,
+            transition: {
+                duration: 0.4,
+                ease: "easeOut"
+            }
+        },
+        viewport: { once: true, margin: "-30px" }
+    };
+
+    const skillItemVariants = {
+        initial: { opacity: 0, scale: 0.95 },
+        whileInView: { 
+            opacity: 1, 
+            scale: 1,
+            transition: {
+                duration: 0.3,
+                ease: "easeOut"
+            }
+        },
+        whileHover: { 
+            scale: 1.05,
+            transition: { duration: 0.2, ease: "easeOut" }
+        },
+        whileTap: { scale: 0.95 }
+    };
+
     const skills = [
-        "JavaScript", "React.js", "Node.js", "Python",
-        "HTML/CSS","MongoDB","Github", "Express.js","Tailwind CSS","Framer Motion"
+        { 
+            category: "Frontend",
+            items: [
+                { name: "React", icon: <img src="/src/assets/react.svg" alt="React" className='w-10 h-10' /> },
+                { name: "JavaScript", icon:<img src="/src/assets/js.png" alt="JavaScript" className='w-10 h-10' /> },
+                { name: "Tailwind", icon: <img src="/src/assets/tailwind.svg" alt="Tailwind" className='w-10 h-10' /> },
+                { name: "Motion.dev", icon: <img src="/src/assets/motionDev.png" alt="Motion.dev" className='w-10 h-10' /> }
+            ]
+        },
+        { 
+            category: "Backend",
+            items: [
+                { name: "Node.js", icon: <img src="/src/assets/node-js.svg" className='w-10 h-10' alt="Node.js" /> },
+                { name: "MongoDB", icon: <img src="/src/assets/mongodb-.svg" className='w-10 h-10' alt="MongoDB" /> }
+            ]
+        },
+        { 
+            category: "Tools",
+            items: [
+                { name: "Github", icon: darkMode ? <img src="/src/assets/github-light.svg" alt="Github" className='w-10 h-10' /> : <img src="/src/assets/github.svg" alt="Github" className='w-10 h-10' /> },
+                { name: "VS Code", icon: <img src="/src/assets/vscode.svg" alt="VS Code" className='w-10 h-10' /> },
+                { name: "Figma", icon: <img src="/src/assets/figma.svg" alt="Figma" className='w-10 h-10' /> }
+            ]
+        }
     ];
 
     return (
-        <section id="about" className={`min-h-screen py-20 relative transition-colors duration-500 ${
-            darkMode ?  'bg-neutral-950 bg-grid-dark' : 'bg-white bg-grid'
-        }`}>
-            <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-            
-            <div className="container mx-auto px-4">
-                <motion.h2 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    viewport={{ once: true }}
-                    className={`text-4xl font-Anton md:text-5xl text-center mb-16 ${
-                        darkMode ? 'text-white' : 'text-gray-800'
-                    }`}
+        <AnimatePresence>
+            <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className={`min-h-screen py-16 ${
+                    darkMode ? 'bg-neutral-950 bg-grid-dark text-white' : 'bg-white bg-grid text-black'
+                }`}
+            >
+                <motion.div 
+                    className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'
+                    variants={staggerContainer}
+                    initial="initial"
+                    whileInView="whileInView"
                 >
-                   ABOUT ME
-                </motion.h2>
-
-                <div className="flex flex-col lg:flex-row gap-12 items-start max-w-6xl mx-auto">
-                    <Marquee className="text-4xl font-Anton md:text-5xl text-center mb-16 text-black">
-                        hi there  asmcvd adsvfgb afsgdhf fegrdhtf
-                    </Marquee>
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5 }}
-                        viewport={{ once: true }}
-                        className={`flex-1 space-y-6 ${
-                            darkMode ? 'text-gray-300' : 'text-gray-600'
-                        }`}
+                    <motion.div 
+                        className='flex flex-col items-center justify-center mb-20'
+                        variants={fadeInUp}
                     >
-                        <div className={`p-8 rounded-2xl min-h-[254px] backdrop-blur-sm border ${
-                            darkMode ? 'border-white/10 bg-white/5' : 'border-black/5 bg-black/5'
-                        }`}>
-                            <h3 className={`text-2xl font-semibold mb-6 ${
-                                darkMode ? 'text-white' : 'text-gray-800'
-                            }`}>
-                                MY JOURNEY
-                            </h3>
-                            <p className="text-lg leading-relaxed">
-                                Hi there! I'm a passionate Full Stack Developer with a keen eye for creating elegant solutions. 
-                                With a strong foundation in both front-end and back-end development, I love bringing ideas to life 
-                                through code.
-                            </p>
-                           
-                        </div>
+                        <motion.h1 
+                            className={`text-[clamp(2rem,5vw,3rem)] font-Anton font-bold tracking-wider mb-2 bg-clip-text text-transparent ${
+                                darkMode 
+                                    ? 'bg-gradient-to-r from-white via-gray-100 to-gray-300'
+                                    : 'bg-gradient-to-r from-gray-700 via-gray-900 to-black'
+                            }`}
+                            initial={{ opacity: 0, y: -30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-40px" }}
+                            transition={{ duration: 3, ease: "easeInOut" }}
+                        >
+                            ABOUT
+                        </motion.h1>
+                        <motion.div 
+                            className='w-20 h-1 bg-blue-500 rounded-full mb-12'
+                            initial={{ width: 0, opacity: 0 }}
+                            whileInView={{ width: 80, opacity: 1 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                        />
+                        
+                        <motion.div 
+                            className='grid md:grid-cols-2 gap-12 items-center'
+                            variants={staggerContainer}
+                        >
+                            <motion.div 
+                                className='space-y-6'
+                                variants={fadeInUp}
+                            >
+                                <motion.p 
+                                    className={`text-xl md:text-2xl text-center max-w-2xl px-4 ${
+                                        darkMode ? 'text-neutral-400' : 'text-gray-600'
+                                    }`}
+                                    variants={fadeInUp}
+                                >
+                                    Hello! I'm a passionate Full Stack Developer with a keen eye for creating elegant solutions.
+                                    I specialize in building responsive web applications that provide exceptional user experiences.
+                                </motion.p>
+                                <motion.p 
+                                   className={`text-xl md:text-2xl text-center max-w-2xl px-4 ${
+                                    darkMode ? 'text-neutral-400' : 'text-gray-600'
+                                }`}
+                                    variants={fadeInUp}
+                                >
+                                    With a strong foundation in both frontend and backend technologies,
+                                    I enjoy tackling complex problems and turning ideas into reality through clean and efficient code.
+                                </motion.p>
+                            </motion.div>
+                            <motion.div 
+                                className='relative group'
+                                initial={{ opacity: 0, x: 30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 1, ease: "easeOut" }}
+                            >
+                                <motion.div 
+                                    className='rounded-4xl overflow-hidden'
+                                    whileHover={{ 
+                                        scale: 1.05,
+                                        transition: { duration: 0.5, ease: "easeOut" }
+                                    }}
+                                >
+                                    <img 
+                                        src="/src/assets/sample-pic.jpg" 
+                                        alt="Profile" 
+                                        className='w-[500px] rounded-full    object-cover'
+                                    />
+                                </motion.div>
+                            </motion.div>
+                        </motion.div>
                     </motion.div>
-                    
-                            
-                </div>
-            </div>
-        </section>
-    );
-};
 
-export default About; 
+                    <motion.div 
+                        className='mt-32'
+                        variants={staggerContainer}
+                    >
+                        <motion.h2 
+                            className={`text-4xl md:text-5xl font-Anton font-bold tracking-wider text-center mb-16 bg-clip-text text-transparent ${
+                                darkMode 
+                                    ? 'bg-gradient-to-r from-white via-gray-100 to-gray-300'
+                                    : 'bg-gradient-to-r from-gray-700 via-gray-900 to-black'
+                            }`}
+                            variants={fadeInUp}
+                        >
+                            SKILLS
+                        </motion.h2>
+                        <motion.div 
+                            className='grid md:grid-cols-3 gap-8'
+                            variants={staggerContainer}
+                        >
+                            {skills.map((skillSet, index) => (
+                                <motion.div 
+                                    key={index} 
+                                    className={`p-6 rounded-xl ${
+                                        darkMode ? 'bg-neutral-900/50' : 'bg-gray-50/80'
+                                    } backdrop-blur-sm`}
+                                    variants={skillCardVariants}
+                                    whileHover={{ 
+                                        scale: 1.02,
+                                        transition: { duration: 0.5, ease: "easeOut" }
+                                    }}
+                                >
+                                    <motion.h3 
+                                        className={`text-2xl font-semibold mb-6 bg-clip-text text-transparent ${
+                                            darkMode 
+                                                ? 'bg-gradient-to-r from-white via-gray-100 to-gray-300'
+                                                : 'bg-gradient-to-r from-gray-700 via-gray-900 to-black'
+                                        }`}
+                                    >
+                                        {skillSet.category}
+                                    </motion.h3>
+                                    <motion.div 
+                                        className='grid grid-cols-2 gap-4'
+                                        variants={staggerContainer}
+                                    >
+                                        {skillSet.items.map((skill, skillIndex) => (
+                                            <motion.div 
+                                                key={skillIndex}
+                                                className={`p-4 rounded-lg ${
+                                                    darkMode 
+                                                        ? 'bg-neutral-800/70 hover:bg-neutral-700/70' 
+                                                        : 'bg-white/70 hover:bg-gray-100/70'
+                                                } backdrop-blur-sm`}
+                                                variants={skillItemVariants}
+                                            >
+                                                <motion.div 
+                                                    className="flex items-center space-x-3"
+                                                    initial={{ opacity: 0 }}
+                                                    whileInView={{ opacity: 1 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ duration: 0.8, ease: "easeOut" }}
+                                                >
+                                                    <motion.span 
+                                                        className="text-2xl"
+                                                        whileHover={{ 
+                                                            rotate: 360,
+                                                            transition: { duration: 0.8, ease: "easeOut" }
+                                                        }}
+                                                    >
+                                                        {skill.icon}
+                                                    </motion.span>
+                                                    <motion.span 
+                                                        className={`font-medium ${
+                                                            darkMode ? 'text-gray-300' : 'text-gray-800'
+                                                        }`}
+                                                    >
+                                                        {skill.name}
+                                                    </motion.span>
+                                                </motion.div>
+                                            </motion.div>
+                                        ))}
+                                    </motion.div>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    </motion.div>
+                </motion.div>
+            </motion.div>
+        </AnimatePresence>
+    );
+}
+
+export default About;
