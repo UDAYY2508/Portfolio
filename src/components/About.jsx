@@ -59,25 +59,25 @@ function About({ darkMode }) {
         { 
             category: "Frontend",
             items: [
-                { name: "React", icon: <img src="/src/assets/react.svg" alt="React" className='w-10 h-10' /> },
-                { name: "JavaScript", icon:<img src="/src/assets/js.png" alt="JavaScript" className='w-10 h-10' /> },
-                { name: "Tailwind", icon: <img src="/src/assets/tailwind.svg" alt="Tailwind" className='w-10 h-10' /> },
-                { name: "Motion.dev", icon: <img src="/src/assets/motionDev.png" alt="Motion.dev" className='w-10 h-10' /> }
+                { name: "React", icon: <img src="/assets/react.svg" alt="React" className='w-10 h-10' /> },
+                { name: "JavaScript", icon:<img src="/assets/js.png" alt="JavaScript" className='w-10 h-10' /> },
+                { name: "Tailwind", icon: <img src="/assets/tailwind.svg" alt="Tailwind" className='w-10 h-10' /> },
+                { name: "Motion.dev", icon: <img src="/assets/motionDev.png" alt="Motion.dev" className='w-10 h-10' /> }
             ]
         },
         { 
             category: "Backend",
             items: [
-                { name: "Node.js", icon: <img src="/src/assets/node-js.svg" className='w-10 h-10' alt="Node.js" /> },
-                { name: "MongoDB", icon: <img src="/src/assets/mongodb-.svg" className='w-10 h-10' alt="MongoDB" /> }
+                { name: "Node.js", icon: <img src="/assets/node-js.svg" className='w-10 h-10' alt="Node.js" /> },
+                { name: "MongoDB", icon: <img src="/assets/mongodb-.svg" className='w-10 h-10' alt="MongoDB" /> }
             ]
         },
         { 
             category: "Tools",
             items: [
-                { name: "Github", icon: darkMode ? <img src="/src/assets/github-light.svg" alt="Github" className='w-10 h-10' /> : <img src="/src/assets/github.svg" alt="Github" className='w-10 h-10' /> },
-                { name: "VS Code", icon: <img src="/src/assets/vscode.svg" alt="VS Code" className='w-10 h-10' /> },
-                { name: "Figma", icon: <img src="/src/assets/figma.svg" alt="Figma" className='w-10 h-10' /> }
+                { name: "Github", icon: darkMode ? <img src="/assets/github-light.svg" alt="Github" className='w-10 h-10' /> : <img src="/assets/github.svg" alt="Github" className='w-10 h-10' /> },
+                { name: "VS Code", icon: <img src="/assets/vscode.svg" alt="VS Code" className='w-10 h-10' /> },
+                { name: "Figma", icon: <img src="/assets/figma.svg" alt="Figma" className='w-10 h-10' /> }
             ]
         }
     ];
@@ -165,7 +165,7 @@ function About({ darkMode }) {
                                     }}
                                 >
                                     <img 
-                                        src="/src/assets/sample-pic.jpg" 
+                                        src="/assets/sample-pic.jpg" 
                                         alt="Profile" 
                                         className='w-[500px] rounded-full    object-cover'
                                     />

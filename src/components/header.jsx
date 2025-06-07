@@ -48,7 +48,7 @@ function Header({ darkMode }) {
 
                     <motion.div
                         variants={itemVariants}
-                        className='text-[clamp(4rem,12vw,8rem)] -mt-[clamp(1rem,4vw,5rem)] font-["Anton"] relative -mb-5'
+                        className='text-[clamp(4rem,12vw,8rem)] -mt-[clamp(1rem,4vw,5rem)] font-["Anton"] relative -mb-5 hover:scale-105 transition-all duration-300 ease-in-out'
                     >
                         <span className={`bg-clip-text text-transparent ${
                             darkMode 
