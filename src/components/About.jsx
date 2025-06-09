@@ -103,7 +103,7 @@ function About({ darkMode }) {
                         variants={fadeInUp}
                     >
                         <motion.h1 
-                            className={`text-[clamp(2rem,5vw,3rem)] font-Anton font-bold tracking-wider mb-2 bg-clip-text text-transparent ${
+                            className={`text-[clamp(2rem,5vw,3rem)] text-4xl tracking-wide font-bold mb-2 bg-clip-text text-transparent font-Anton ${
                                 darkMode 
                                     ? 'bg-gradient-to-r from-white via-gray-100 to-gray-300'
                                     : 'bg-gradient-to-r from-gray-700 via-gray-900 to-black'
@@ -116,7 +116,9 @@ function About({ darkMode }) {
                             ABOUT
                         </motion.h1>
                         <motion.div 
-                            className='w-20 h-1 bg-blue-500 rounded-full mb-12'
+                            className={`w-20 h-1 rounded-full mb-12 ${
+                                darkMode ? 'bg-neutral-200' : 'bg-gray-600'
+                            }`}
                             initial={{ width: 0, opacity: 0 }}
                             whileInView={{ width: 80, opacity: 1 }}
                             viewport={{ once: true, margin: "-50px" }}
@@ -132,8 +134,8 @@ function About({ darkMode }) {
                                 variants={fadeInUp}
                             >
                                 <motion.p 
-                                    className={`text-xl md:text-2xl text-center max-w-2xl px-4 ${
-                                        darkMode ? 'text-neutral-400' : 'text-gray-600'
+                                    className={`text-xl md:text-2xl text-center max-w-2xl px-4 font-Spectral ${
+                                        darkMode ? 'text-neutral-300' : 'text-gray-600'
                                     }`}
                                     variants={fadeInUp}
                                 >
@@ -141,8 +143,8 @@ function About({ darkMode }) {
                                     I specialize in building responsive web applications that provide exceptional user experiences.
                                 </motion.p>
                                 <motion.p 
-                                   className={`text-xl md:text-2xl text-center max-w-2xl px-4 ${
-                                    darkMode ? 'text-neutral-400' : 'text-gray-600'
+                                   className={`text-xl md:text-2xl text-center font-Spectral max-w-2xl px-4 ${
+                                    darkMode ? 'text-neutral-300' : 'text-gray-600'
                                 }`}
                                     variants={fadeInUp}
                                 >
@@ -167,7 +169,7 @@ function About({ darkMode }) {
                                     <img 
                                         src="/assets/sample-pic.jpg" 
                                         alt="Profile" 
-                                        className='w-[500px] rounded-full    object-cover'
+                                        className='w-[500px] rounded-full object-cover'
                                     />
                                 </motion.div>
                             </motion.div>
@@ -179,7 +181,7 @@ function About({ darkMode }) {
                         variants={staggerContainer}
                     >
                         <motion.h2 
-                            className={`text-4xl md:text-5xl font-Anton font-bold tracking-wider text-center mb-16 bg-clip-text text-transparent ${
+                            className={`text-4xl md:text-5xl font-Anton tracking-wider font-bold text-center mb-16 bg-clip-text text-transparent ${
                                 darkMode 
                                     ? 'bg-gradient-to-r from-white via-gray-100 to-gray-300'
                                     : 'bg-gradient-to-r from-gray-700 via-gray-900 to-black'
@@ -187,6 +189,15 @@ function About({ darkMode }) {
                             variants={fadeInUp}
                         >
                             SKILLS
+                            <motion.div 
+                           className={`w-20 h-1 rounded-full mx-auto  mt-3 ${
+                            darkMode ? 'bg-neutral-200' : 'bg-gray-600'
+                        }`}
+                            initial={{ width: 0, opacity: 0 }}
+                            whileInView={{ width: 80, opacity: 1 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                        />
                         </motion.h2>
                         <motion.div 
                             className='grid md:grid-cols-3 gap-8'
