@@ -83,12 +83,12 @@ function Header({ darkMode }) {
                     >
                         <TypeAnimation
                             sequence={[
-                                'i am a full stack developer with a passion for creating ',
+                                'Developer & Designer who makes your websites stand out',
                                 4000,
                             ]}
-                            repeat={Infinity}
-                            speed={50}
-                            className="font-medium"
+                            
+                            speed={40}
+                            className="font-medium ease-in"
                         />
                     </motion.div>
                 </motion.div>

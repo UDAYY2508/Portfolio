@@ -76,7 +76,7 @@ function About({ darkMode }) {
             category: "Tools",
             items: [
                 { name: "Github", icon: darkMode ? <img src="/assets/github-light.svg" alt="Github" className='w-10 h-10' /> : <img src="/assets/github.svg" alt="Github" className='w-10 h-10' /> },
-                { name: "VS Code", icon: <img src="/assets/vscode.svg" alt="VS Code" className='w-10 h-10' /> },
+                { name: "webflow", icon: <img src="/assets/webflow-icon.png" alt="VS Code" className='w-10 h-10' /> },
                 { name: "Figma", icon: <img src="/assets/figma.svg" alt="Figma" className='w-10 h-10' /> }
             ]
         }
@@ -88,6 +88,7 @@ function About({ darkMode }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
+                id='about'
                 className={`min-h-screen py-16 ${
                     darkMode ? 'bg-neutral-950 bg-grid-dark text-white' : 'bg-white bg-grid text-black'
                 }`}
@@ -108,10 +109,10 @@ function About({ darkMode }) {
                                     ? 'bg-gradient-to-r from-white via-gray-100 to-gray-300'
                                     : 'bg-gradient-to-r from-gray-700 via-gray-900 to-black'
                             }`}
-                            initial={{ opacity: 0, y: -30 }}
+                            initial={{ opacity: 0, y: -20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-40px" }}
-                            transition={{ duration: 3, ease: "easeInOut" }}
+                            transition={{ duration: 2, ease: "easeInOut" }}
                         >
                             ABOUT
                         </motion.h1>
@@ -134,22 +135,20 @@ function About({ darkMode }) {
                                 variants={fadeInUp}
                             >
                                 <motion.p 
-                                    className={`text-xl md:text-2xl text-center max-w-2xl px-4 font-Spectral ${
+                                    className={`text-xl md:text-2xl text-center max-w-2xl px-4  ${
                                         darkMode ? 'text-neutral-300' : 'text-gray-600'
                                     }`}
                                     variants={fadeInUp}
                                 >
-                                    Hello! I'm a passionate Full Stack Developer with a keen eye for creating elegant solutions.
-                                    I specialize in building responsive web applications that provide exceptional user experiences.
+                                    Hey! I'm a growing web developer and designer.I'm constantly exploring new ways to bring imagination to life—whether it's through smooth animations, or unique user experiences.
                                 </motion.p>
                                 <motion.p 
-                                   className={`text-xl md:text-2xl text-center font-Spectral max-w-2xl px-4 ${
+                                   className={`text-xl md:text-2xl text-center  max-w-2xl px-4 ${
                                     darkMode ? 'text-neutral-300' : 'text-gray-600'
                                 }`}
                                     variants={fadeInUp}
                                 >
-                                    With a strong foundation in both frontend and backend technologies,
-                                    I enjoy tackling complex problems and turning ideas into reality through clean and efficient code.
+                                    I believe in learning by doing, growing with every project, and turning fresh ideas into functional and unique realities on the web — and I’m excited to work on meaningful real-world projects.
                                 </motion.p>
                             </motion.div>
                             <motion.div 
@@ -167,7 +166,7 @@ function About({ darkMode }) {
                                     }}
                                 >
                                     <img 
-                                        src="/assets/sample-pic.jpg" 
+                                        src="/assets/profile-bg.jpg" 
                                         alt="Profile" 
                                         className='w-[500px] rounded-full object-cover'
                                     />

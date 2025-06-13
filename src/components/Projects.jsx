@@ -7,43 +7,44 @@ function Projects({ darkMode }) {
 
     const projects = [
         {
-            title: "Portfolio",
-            description: "Personal portfolio showcasing my work and skills",
-            tech: "React • Tailwind • Framer Motion",
-            github: "https://github.com/yourusername/portfolio",
-            live: "#",
+            title: "GAMENEXT",
+            description: "A game recommendation system to find your next go to game",
+            tech: "JavaScript • CSS • API",
+            github: "",
+            live: "",
             image: "assets/sample-pic.jpg",
-            video: "assets/sample-vid.mp4"
+            video: "assets/game-nxt-vid.mp4"
         },
         {
-            title: "E-Commerce",
-            description: "Modern e-commerce platform with seamless checkout",
-            tech: "Next.js • MongoDB • Stripe",
-            github: "https://github.com/yourusername/ecommerce",
-            live: "#",
+            title: "Invoice Generator",
+            description: "A simple invoice generator to create invoices for your clients",
+            tech: "React • Node.js • Express",
+            github: "https://github.com/UDAYY2508/invoice-app",
+            live: "https://ezy-invoice.netlify.app",
             image: "assets/sample-pic.jpg",
-            video: "assets/sample-vid.mp4"
+            video: "assets/invoice-vid.mp4"
         },
         {
-            title: "AI Chat",
-            description: "Real-time chat application with AI integration",
-            tech: "React • Node.js • Socket.IO",
-            github: "https://github.com/yourusername/chat",
-            live: "#",
+            title: "XDRIVE",
+            description: "A file management system to store and share files with authentication",
+            tech: "React • Node.js • MongoDB",
+            github: "",
+            live: "",
             image: "assets/sample-pic.jpg",
-            video: "assets/sample-vid.mp4"
+            video: "assets/xdrive.mp4"
         }
     ];
 
     return (
-        <div className={`min-h-screen py-24 flex flex-col items-center relative transition-colors duration-500 ${
+        <div id='projects' className={`min-h-screen py-24 flex flex-col items-center relative transition-colors duration-500 ${
             darkMode ? 'bg-neutral-950 bg-grid-dark' : 'bg-white bg-grid'
+            
         }`}>
             <div className='absolute inset-0 bg-grid-pattern opacity-5' />
             
             <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
                 <motion.h2
-                    className={`text-4xl sm:text-5xl text-center font-Anton font-bold mb-2 ${
+                    className={`text-4xl tracking-wide sm:text-5xl text-center font-Anton font-bold mb-2.5 ${
                         darkMode ? 'text-white' : 'text-gray-900'
                     }`}
                     initial={{ opacity: 0, y: 20 }}
@@ -55,7 +56,7 @@ function Projects({ darkMode }) {
                 </motion.h2>
 
                 <motion.div 
-                    className={`w-16 h-1 mx-auto rounded-full mb-16 ${
+                    className={`w-16 h-1 mx-auto rounded-full mb-3 ${
                         darkMode ? 'bg-white' : 'bg-gray-900'
                     }`}
                     initial={{ width: 0, opacity: 0 }}
@@ -64,7 +65,7 @@ function Projects({ darkMode }) {
                     transition={{ duration: 0.5, delay: 0.2 }}
                 />
 
-                <div className="space-y-6">
+                <div className="space-y-8">
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
