@@ -140,7 +140,9 @@ function About({ darkMode }) {
                                     }`}
                                     variants={fadeInUp}
                                 >
-                                    Hey! I'm a growing web developer and designer.I'm constantly exploring new ways to bring imagination to life—whether it's through smooth animations, or unique user experiences.
+                                    Hey! I’m a web developer and designer who’s constantly experimenting with ways to turn imagination into interactive, visually engaging digital experiences.
+
+
                                 </motion.p>
                                 <motion.p 
                                    className={`text-xl md:text-2xl text-center  max-w-2xl px-4 ${
@@ -148,7 +150,7 @@ function About({ darkMode }) {
                                 }`}
                                     variants={fadeInUp}
                                 >
-                                    I believe in learning by doing, growing with every project, and turning fresh ideas into functional and unique realities on the web — and I’m excited to work on meaningful real-world projects.
+                                   I believe in learning by doing, growing with every project, and turning fresh ideas into functional, one-of-a-kind web experiences — and I’m always excited to take on meaningful, real-world challenges.
                                 </motion.p>
                             </motion.div>
                             <motion.div 
